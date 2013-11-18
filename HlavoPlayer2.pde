@@ -44,17 +44,21 @@ void setup() {
   
   
   
-  player1 = minim1.loadFile("sample1.mp3");
-  player1.setPan(-1 );
+  player1 = minim1.loadFile("pc_celek_rozhovor.mp3");
+  //player1.setPan(0);
   len1 = player1.length();
-  player2 = minim2.loadFile("sample2.mp3");
+  player2 = minim2.loadFile("ucetni_celek_rozhovor.mp3");
   player2.setBalance(1);
   len2 = player2.length();
   
-  player3 = minim2.loadFile("sample3.mp3");
+  player3 = minim2.loadFile("umelec_celek_rozhovor.mp3");
   len3 = player3.length();
   player3.setBalance(-1 );
+  
   player1.play(); 
+  player2.play();
+  player3.play();
+  
   println(player1.getControls( ));
   println("TRACK 1");
   
@@ -63,8 +67,8 @@ void setup() {
 void draw() {
   background(0);
   stroke(255);
-
-  if (track == 1 && !player1.isPlaying()) {
+/*
+if (track == 1 && !player1.isPlaying()) {
     
     setHead1();
     player1.rewind();
@@ -88,6 +92,10 @@ void draw() {
     track = 1;
     println("TRACK 1");
   }
+  
+  */
+  
+  
 
   float progress1 = map(player1.position(), 0, len1, 10, width-10);
   float progress2 = map(player2.position(), 0, len2, 10, width-10);
